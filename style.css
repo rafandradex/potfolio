@@ -1,0 +1,165 @@
+header {
+    background-color: var(--bs-primary-bg-subtle);
+
+    .navbar-collapse ul li a,
+    .navbar-brand {
+        color: var(--bs-emphasis-color);
+    }
+
+    .navbar-nav .nav-link.active {
+        color: var(--bs-primary-text-emphasis)
+    }
+
+    .nav-link:focus,
+    .nav-link:hover {
+        color: var(--bs-primary-text-emphasis);
+    }
+}
+
+.estatisticas {
+    .estatisticas_contador {
+        background-color: var(--bs-primary-bg-subtle);
+        border: 1px solid var(--bs-primary-border-subtle);
+        padding: 2em;
+        border-radius: .5em;
+
+        div {
+            font-size: 1.3em;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+
+            span {
+                font-size: 2em;
+            }
+        }
+    }
+}
+
+section:not(:first-child) {
+    margin-block: 4rem;
+}
+
+h2 {
+    margin-bottom: 1.5em;
+}
+
+.titulo_section::after {
+    content: "";
+    display: block;
+    width: 100px;
+    height: 3px;
+    background-color: var(--bs-primary-border-subtle);
+    margin-top: .30em;
+}
+
+.card {
+    margin-bottom: 1em;
+    background-color: var(--bs-body-bg);
+    border: 1px solid var(--bs-light-border-subtle);
+    transition: all 0.7s ease-out;
+}
+
+.card:hover {
+    border: 1px solid var(--bs-primary-border-subtle);
+    background-color: var(--bs-primary-bg-subtle);
+}
+
+.linguagens {
+    .linguagens_lista {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        row-gap: 1em;
+        gap: 1em;
+
+        .linguagem_item {
+            display: flex;
+            align-items: center;
+            border: 1px solid var(--bs-light-border-subtle);
+            gap: 12px;
+            padding: 16px;
+            border-radius: 6px;
+            transition: all 0.7s ease-out;
+
+            svg {
+                color: var(--bs-primary-text-emphasis);
+            }
+        }
+
+        .linguagem_item:hover {
+            border: 1px solid var(--bs-primary-border-subtle);
+            background-color: var(--bs-primary-bg-subtle);
+        }
+    }
+
+    @media screen and (width < 768px) {
+        .linguagens_lista {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            row-gap: 1em;
+            gap: 1em;
+        }
+    }
+}
+
+footer {
+    background-color: var(--bs-primary-bg-subtle);
+
+    ul {
+        list-style-type: none;
+        i {
+            font-size: 1.5em;
+        }
+    }
+}
+
+
+/* Rolagem suave */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Estilo do botão */
+.botao-topo {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #007bff;
+  color: #fff;
+  width: 50px;
+  height: 50px;
+  border-radius: .5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 24px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  z-index: 1000;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  /* Oculta o botão por omissão e inicia a animação de scroll */
+  opacity: 0;
+  pointer-events: none;
+
+  animation: aparecerBotao linear;
+  animation-timeline: scroll();
+  animation-range: 100px 101px;
+  animation-fill-mode: both;
+}
+
+@keyframes aparecerBotao {
+  from {
+    opacity: 0;
+    pointer-events: none;
+  }
+  to {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+.botao-topo:hover {
+  background-color: #0056b3;
+}
