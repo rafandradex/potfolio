@@ -1,90 +1,117 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="pt-PT">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+
 </head>
 
-<body data-bs-theme="dark" id="top">
-    <header class="sticky-top">
+<body id="top">
+    <header>
         <div class="container">
-            <nav class="navbar navbar-expand-lg">
-                <div class="container-fluid">
-                    <a class="navbar-brand" href="index.html">Portfolio</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
-                        aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                        <ul class="navbar-nav ms-auto">
-                            <li class="nav-item">
-                                <a class="nav-link" aria-current="page" href="#inicio">Inicio</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#sobre_mim">Sobre mim</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#o_meu_portfolio">Portfolio</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#perguntas">Perguntas</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#contacto">Contacto</a>
-                            </li>
-                            <li class="nav-item">
-                                <button class="btn tema_site"><i class="bi bi-brightness-high-fill"></i></button>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+            <h1>Portfolio</h1>
+            <button class="open_menu"><i class="bi bi-list"></i></button>
+            <nav class="hidden_menu" id="navbar">
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#sobre_mim">Sobre mim</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#perguntas">Perguntas</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                    <li>
+                        <button class="btn tema_site"><i class="bi bi-brightness-high-fill"></i></button>
+                    </li>
+                </ul>
             </nav>
         </div>
     </header>
-    <main data-bs-spy="scroll" data-bs-target="#navbarNavDropdown" data-bs-smooth-scroll="true"
-        class="scrollspy-example" tabindex="0">
-        <section id="inicio">
-            <img src="img/banner.jpg" alt="Banner do site" id="sobre_mim" class="img-fluid">
+    <main>
+        <section class="banner" id="inicio">
+            <img src="img/banner.jpg" alt="Banner sobre programalão">
         </section>
-        <section class="sobre_mim container">
-            <h2 class="titulo_section">Sobre mim</h2>
-            <div>
-                <p class="font-monospace">Meu nome é Rafael. Sou estudante e o meu sonho é tornar-me programador
-                    full stack ou
-                    desenvolvedor de jogos.</p>
-                <p class="font-monospace">Sempre fui apaixonado por jogos, e essa paixão levou-me a começar a
-                    programar servidores de GTA
-                    RP. Foi assim que iniciei a minha jornada na programação. Desde então, tenho expandido os meus
-                    conhecimentos e comecei a desenvolver sites. Programar é algo que realmente me encanta e me faz
-                    esquecer o mundo à minha volta.</p>
-            </div>
-        </section>
-        <section class="portfolio container" id="o_meu_portfolio">
-            <h2 class="titulo_section">O Meu Portfolio</h2>
-            <div class="row portfolio_cards">
-            </div>
-        </section>
-        <!-- <section class="video container">
-            <h2 class="titulo_section">Video dos Seniores Online</h2>
-            <div class="col-9 mx-auto">
-                <div class="ratio ratio-16x9">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/ZCZssXeG0FY?si=1pGoUndg86_EKsx6"
-                        title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <section class="sobre_mim container" id="sobre_mim">
+            <h2 class="titleSections">Sobre mim</h2>
+            <div class="sobre_mim_tabela">
+                <aside>
+                    <div class="minhas_info">
+                        <img src="img/foto.jpeg" alt="Foto de Rafael Gaspar">
+                        <div class="minhas_info_texto">
+                            <h3>Rafael Gaspar</h3>
+                            <p>Estudante</p>
+                        </div>
+                    </div>
+                    <div class="sobre_mim_estatisticas">
+                        <ul class="estatistica_lista minhas_estatisticas">
+                            <li><span id="numeroDeProjetos">0</span> PROJETOS</li>
+                            <li><span id="numeroDeAnos">0</span> ANOS</li>
+                            <li><span id="numeroDeLinguagens">0</span> LINGUAGENS</li>
+                        </ul>
+                    </div>
+                    <div class="sobre_mim_docs">
+                        <button><i class="bi bi-download"></i>Dowload CV</button>
+                        <button><i class="bi bi-envelope"></i>Contact</button>
+                    </div>
+                    <div class="sobre_mim_redes_sociais">
+                        <ul class="redes_sociais">
+                            <li><a href="https://www.instagram.com/rafandradex_/" target="_blank"><i
+                                        class="bi bi-instagram"></i></a>
+                            </li>
+                            <li><a href="https://github.com/rafandradex" target="_blank"><i
+                                        class="bi bi-github"></i></a></li>
+                        </ul>
+                    </div>
+                </aside>
+                <div class="sobre_mim_texto">
+                    <h3>Transformando ideias em realidade digital</h3>
+                    <p>Meu nome é Rafael. Sou estudante e o meu sonho é tornar-me programador full stack ou
+                        desenvolvedor de
+                        jogos.</p>
+                    <p>Sempre fui apaixonado por jogos, e essa paixão levou-me a começar a programar servidores de GTA
+                        RP. Foi
+                        assim que iniciei a minha jornada na programação. Desde então, tenho expandido os meus
+                        conhecimentos e
+                        comecei a desenvolver sites. Programar é algo que realmente me encanta e me faz esquecer o mundo
+                        à minha
+                        volta.</p>
+                </div>
+                <div class="sobre_mim_card">
+                    <div class="sobre_mim_card_item">
+                        <i class="bi bi-briefcase"></i>
+                        <div class="sobre_mim_card_item_texto">
+                            <span>EXPERIÊNCIA</span>
+                            <strong>2 ANOS</strong>
+                        </div>
+                    </div>
+                    <div class="sobre_mim_card_item">
+                        <i class="bi bi-geo-alt"></i>
+                        <div class="sobre_mim_card_item_texto">
+                            <span>SOU DE</span>
+                            <strong>Portugal</strong>
+                        </div>
+                    </div>
                 </div>
             </div>
+        </section>
+        <!-- <section class="sobre_mim container" id="sobre_mim">
+            <h2 class="titleSections">Sobre mim</h2>
+            <p>Meu nome é Rafael. Sou estudante e o meu sonho é tornar-me programador full stack ou desenvolvedor de
+                jogos.</p>
+            <p>Sempre fui apaixonado por jogos, e essa paixão levou-me a começar a programar servidores de GTA RP. Foi
+                assim que iniciei a minha jornada na programação. Desde então, tenho expandido os meus conhecimentos e
+                comecei a desenvolver sites. Programar é algo que realmente me encanta e me faz esquecer o mundo à minha
+                volta.</p>
         </section> -->
-        <section class="linguagens container">
-            <h2 class="titulo_section">Linguagens Utilizadas</h2>
+        <section class="portfolio container" id="portfolio">
+            <h2 class="titleSections">Portfolio</h2>
+            <div class="portfolio_cards"></div>
+        </section>
+        <section class="linguagens_utilizadas container">
+            <h2 class="titleSections">Linguagens Utilizadas</h2>
             <div class="linguagens_lista">
                 <div class="linguagem_item">
                     <div><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor"
@@ -144,132 +171,79 @@
                 </div>
             </div>
         </section>
-        <section class="estatisticas text-center container">
-            <div class="row estatisticas_contador ">
-                <div class="col-md-4"><span id="numeroDeProjetos"></span> Projetos</div>
-                <div class="col-md-4"><span id="numeroDeAnos"></span> Anos de Experiência</div>
-                <div class="col-md-4"><span id="numeroDeLinguagens"></span> Linguagens</div>
-            </div>
-        </section>
+        <!-- <section class="estatistica container">
+            <ul class="estatistica_lista">
+                <li><span id="numeroDeProjetos">0</span> Projetos</li>
+                <li><span id="numeroDeAnos">0</span> Anos de Experiência</li>
+                <li><span id="numeroDeLinguagens">0</span> Linguagens</li>
+            </ul>
+        </section> -->
         <section class="perguntas container" id="perguntas">
-            <h2 class="titulo_section">Perguntas</h2>
-            <div class="accordion" id="accordionExample">
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            Este site está a ser criado como??
-                        </button>
-                    </h2>
-                    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                            Este site está a ser desenvolvido na linguagem <strong>HTML</strong> e <strong>CSS</strong>,
-                            mas o site foi criado para ser feito maioritariamente em <strong>Bootstrap</strong>
-                        </div>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                            Qual meu conhecimento na area??
-                        </button>
-                    </h2>
-                    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                            A minha primeira linguagem foi <strong>python</strong> que aprendi a <strong>27 de junho de
-                                2021</strong>. Atualmente tenho mais conhecimento em Web, meu primeiro curso de Web foi
-                            de <strong>HTML</strong> e <strong>CSS</strong>. Nas minhas ferias de verão de 2024 eu
-                            paguei uma plataforma de curso de programaçao e foi la que comecei a aprender
-                            <strong>JAVASCRIPT</strong> e nas ferias de verão de 2025 comecei a aprender
-                            <strong>REACT</strong> no qual é a linguagem que eu não sei a 100% e a linguagem que comecei
-                            a mexer recentemente foi <strong>C# (C Sharp)</strong>. Na escola aprendi
-                            <strong>PHP</strong>, melhorei meus conhecimentos em <strong>JAVASCRIPT</strong> e a prendir
-                            a mexer com base de dados, com arquivos <strong>DB</strong>. Este ano de 2026 nas ferias de
-                            verão irei aprofundar meu conhecimento em <strong>REACT</strong> e
-                            <strong>TYPESCRIPT</strong>, no final das ferias de verão quero aprofundar meu conhecimento
-                            de <strong>C# (C Sharp)</strong> para futuramente conseguir criar um jogos.
-                        </div>
-                    </div>
-                </div>
-                <!-- <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                            Pergunta #3
-                        </button>
-                    </h2>
-                    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                            <strong>This is the third item’s accordion body.</strong> It is hidden by default, until the
-                            collapse plugin adds the appropriate classes that we use to style each element. These
-                            classes control the overall appearance, as well as the showing and hiding via CSS
-                            transitions. You can modify any of this with custom CSS or overriding our default variables.
-                            It’s also worth noting that just about any HTML can go within the
-                            <code>.accordion-body</code>, though the transition does limit overflow.
-                        </div>
-                    </div>
-                </div> -->
+            <h2 class="titleSections">Perguntas</h2>
+            <div class="perguntas_accordion">
+                <details class="perguntas_accordion_item" name="exclusive">
+                    <summary>Este site está a ser criado como??</summary>
+                    <p>Este site está a ser desenvolvido na linguagem <strong>HTML</strong> e <strong>CSS</strong>.</p>
+                </details>
+                <details class="perguntas_accordion_item" name="exclusive">
+                    <summary>Qual é o meu conhecimento na área??</summary>
+                    <p>A minha primeira linguagem foi <strong>python</strong> que aprendi a <strong>27 de junho de
+                            2021</strong>. Atualmente tenho mais conhecimento em Web, meu primeiro curso de Web foi
+                        de <strong>HTML</strong> e <strong>CSS</strong>. Nas minhas ferias de verão de 2024 eu
+                        paguei uma plataforma de curso de programaçao e foi la que comecei a aprender
+                        <strong>JAVASCRIPT</strong> e nas ferias de verão de 2025 comecei a aprender
+                        <strong>REACT</strong> no qual é a linguagem que eu não sei a 100% e a linguagem que comecei
+                        a mexer recentemente foi <strong>C# (C Sharp)</strong>. Na escola aprendi
+                        <strong>PHP</strong>, melhorei meus conhecimentos em <strong>JAVASCRIPT</strong> e a prendir
+                        a mexer com base de dados, com arquivos <strong>DB</strong>. Este ano de 2026 nas ferias de
+                        verão irei aprofundar meu conhecimento em <strong>REACT</strong> e
+                        <strong>TYPESCRIPT</strong>, no final das ferias de verão quero aprofundar meu conhecimento
+                        de <strong>C# (C Sharp)</strong> para futuramente conseguir criar um jogos.
+                    </p>
+                </details>
             </div>
         </section>
         <section class="contacto container" id="contacto">
-            <h2 class="titulo_section">Contacto</h2>
-            <form class="row g-3">
-                <div class="col-md-6">
-                    <label for="validationServer01" class="form-label">Primeiro Nome</label>
-                    <input type="text" class="form-control" id="validationServer01" required>
+            <h2 class="titleSections">Contacto</h2>
+            <form action="">
+                <div class="dados_usuario">
+                    <fieldset>
+                        <label>Nome:</label>
+                        <input type="text" required>
+                    </fieldset>
+                    <fieldset>
+                        <label>Email</label>
+                        <input type="email" required>
+                    </fieldset>
                 </div>
-                <div class="col-md-6">
-                    <label for="exampleFormControlInput1" class="form-label">Endereço de email</label>
-                    <input type="email" class="form-control" id="exampleFormControlInput1"
-                        placeholder="name@example.com" required>
-                </div>
-                <div class="mb-3">
-                    <label for="assunto" class="form-label">Assunto</label>
-                    <select name="assunto" id="assunto" class="form-select" aria-label="Default select example"
-                        required>
-                        <option value="1">Ajuda</option>
-                        <option value="2">Serviço</option>
-                        <option value="3">Reclamação</option>
+                <div class="assunto_select">
+                    <label>Assunto</label>
+                    <select name="" id="" required>
+                        <option value="">Ajuda</option>
+                        <option value="">Problema</option>
+                        <option value="">Serviço</option>
                     </select>
                 </div>
-                <div class="mb-3">
-                    <label for="exampleFormControlTextarea1" class="form-label">Mensagem</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" required></textarea>
-                </div>
-                <div class="col-12">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck3"
-                            aria-describedby="invalidCheck3Feedback" required>
-                        <label class="form-check-label" for="invalidCheck3">
-                            Agree to terms and conditions
-                        </label>
-                    </div>
-                </div>
-                <div class="col-12">
-                    <button class="btn btn-primary" type="submit">Enviar formulario</button>
-                </div>
+                <fieldset>
+                    <label>Mensagem</label>
+                    <textarea name="" id="" required></textarea>
+                </fieldset>
+                <button type="submit">Enviar formulario</button>
             </form>
         </section>
     </main>
-    <a href="#top" class="botao-topo" aria-label="Voltar ao topo">↑</a>
-    <footer>
-        <div class="container d-flex justify-content-between align-items-center">
-            <p class="container mb-0 p-4">Site portfolio de Rafael Gaspar</p>
-            <ul class="redes_sociais d-flex mb-0 p-4 gap-2">
-                <li><a href="https://www.instagram.com/rafandradex_/" target="_blank"><i
-                            class="bi bi-instagram"></i></a></li>
-                <li><a href="https://github.com/rafandradex" target="_blank"><i class="bi bi-github"></i></a></li>
-            </ul>
-        </div>
-    </footer>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
-        integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
-        crossorigin="anonymous"></script>
-    <script type="module" src="script.js"></script>
 </body>
+<a href="#top" class="botao-topo" aria-label="Voltar ao topo">↑</a>
+<footer>
+    <div class="rodape container">
+        <p>Site portfolio de Rafael Gaspar</p>
+        <ul class="redes_sociais">
+            <li><a href="https://www.instagram.com/rafandradex_/" target="_blank"><i class="bi bi-instagram"></i></a>
+            </li>
+            <li><a href="https://github.com/rafandradex" target="_blank"><i class="bi bi-github"></i></a></li>
+        </ul>
+    </div>
+</footer>
+<script type="module" src="script.js"></script>
 
 </html>

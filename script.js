@@ -2,20 +2,35 @@
 // 27 de junho de 2021 06:09
 
 const temaDoSite = localStorage.getItem('tema')
-const body = document.querySelector('body')
+const html = document.querySelector('html')
 const portfolio_cards = document.querySelector('.portfolio_cards')
+const navbar = document.getElementById('navbar')
 const portfolio = [
     { titulo: "Seniores Online", texto: "Seniores Online é um projeto do qual foi criado para ajudar os seniores que estão nos lares.", img: "img/Capture.PNG", site: "https://senioresonline.netlify.app/" },
     { titulo: "Meu Perfil", texto: "Meu perfil foi o meu primeiro site a ser postado, é basico.", img: "img/meuperfil.PNG", site: "https://rafandradex.github.io/meuperfil/" },
     { titulo: "Portfolio", texto: "Site aleatorio que criei a uns anos atras", img: "img/portfolio.PNG", site: "https://rafandradex.github.io/portefolio/" },
 
 ]
+
+document.addEventListener('click', (e) => {
+    const btn = e.target.closest('.open_menu')
+    if(!btn) return;
+
+    if(navbar.classList.contains('hidden_menu')) {
+        navbar.classList.remove('hidden_menu')
+    } else {
+        navbar.classList.add('hidden_menu')
+    }
+})
+
 const tema_site = document.querySelector('.tema_site')
 
 if (!temaDoSite) {
-    localStorage.setItem('tema', body.getAttribute('data-bs-theme'))
+    localStorage.setItem('tema', "dark")
 } else {
-    body.setAttribute('data-bs-theme', temaDoSite)
+    if (temaDoSite === 'light') {
+        html.classList.add('light-theme')
+    }
 }
 
 temaDoSite === 'dark' ? tema_site.innerHTML = `<i class="bi bi-brightness-high-fill"></i>` : tema_site.innerHTML = `<i class="bi bi-moon-stars"></i>`
@@ -27,13 +42,12 @@ document.addEventListener('click', (e) => {
     if (!btn) return;
 
     if (temaDoSite === 'dark') {
-        body.setAttribute('data-bs-theme', 'light')
+        html.classList.add('light-theme')
         tema_site.innerHTML = `<i class="bi bi-moon-stars"></i>`
         localStorage.setItem('tema', 'light')
-        console.log(btn);
 
     } else {
-        body.setAttribute('data-bs-theme', 'dark')
+        html.classList.remove('light-theme')
         tema_site.innerHTML = `<i class="bi bi-brightness-high-fill"></i>`
         localStorage.setItem('tema', 'dark')
     }
@@ -43,16 +57,14 @@ document.addEventListener('click', (e) => {
 
 if (portfolio.length > 0) {
     portfolio.forEach(card => {
-        portfolio_cards.innerHTML += `
-        <div class="col-lg-3">    
-            <div class="card">
-                <img src=${card.img} class="card-img-top" alt="Print do site Seniores Online">
-                <div class="card-body">
-                    <h5 class="card-title">${card.titulo}</h5>
-                    <p class="card-text">${card.texto}</p>
-                    <a href=${card.site} class="btn btn-primary" target="_blank">Ver
-                        site</a>
-                </div>
+        portfolio_cards.innerHTML += `   
+        <div class="card">
+            <img src=${card.img} class="card-img-top" alt="Print do site Seniores Online">
+            <div class="card-body">
+                <h5 class="card-title">${card.titulo}</h5>
+                <p class="card-text">${card.texto}</p>
+                <a href=${card.site} class="btn" target="_blank">Ver
+                    site</a>
             </div>
         </div>
         `
@@ -62,11 +74,11 @@ if (portfolio.length > 0) {
 }
 
 
-document.addEventListener('DOMContentLoaded', () => {
+function numeroDeProj() {
     const numeroDeProjetos = document.getElementById('numeroDeProjetos')
     const projetos = portfolio.length
 
-    const duracao = 650
+    const duracao = 750
 
     let inicio = 0
     const incremento = 1;
@@ -82,14 +94,14 @@ document.addEventListener('DOMContentLoaded', () => {
             numeroDeProjetos.textContent = Math.floor(inicio)
         }
     }, intervaloDeTempo)
-})
+}
 
-document.addEventListener('DOMContentLoaded', () => {
+function numeroDeAnosEx() {
     const numeroDeAnos = document.getElementById('numeroDeAnos')
     const dataAtual = new Date().getFullYear()
     const dataQueComecei = new Date('2024').getFullYear()
     const anosDeExperiencia = dataAtual - dataQueComecei
-    const duracao = 1000
+    const duracao = 750
 
     let inicio = 0
     const incremento = 1;
@@ -104,12 +116,12 @@ document.addEventListener('DOMContentLoaded', () => {
             numeroDeAnos.textContent = Math.floor(inicio)
         }
     }, intervaloDeTempo)
-})
+}
 
-document.addEventListener('DOMContentLoaded', () => {
+function numeroDeLinguagensUt(params) {
     const numeroDeLinguagens = document.getElementById('numeroDeLinguagens')
     const numeroDeLinguagensUtilizadas = 7
-    const duracao = 1000
+    const duracao = 750
 
     let inicio = 0
     const incremento = 1;
@@ -124,4 +136,25 @@ document.addEventListener('DOMContentLoaded', () => {
             numeroDeLinguagens.textContent = Math.floor(inicio)
         }
     }, intervaloDeTempo)
-})
+}
+
+
+const scrollSiteNumber = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.2
+}
+
+const obverver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            numeroDeLinguagensUt()
+            numeroDeAnosEx()
+            numeroDeProj()
+            observer.unobserve(entry.target)
+        }
+    })
+}, scrollSiteNumber)
+
+const estatistica_lista = document.querySelector('.estatistica_lista')
+obverver.observe(estatistica_lista)
